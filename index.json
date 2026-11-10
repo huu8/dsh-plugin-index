@@ -1,0 +1,140 @@
+{
+  "format": 1,
+  "title": {
+    "zh": "胡爹的 DSH 插件",
+    "en": "huzijing's DSH Plugins"
+  },
+  "description": {
+    "zh": "macOS 上自用的 DSH 插件：AOCI 认知面板与 CodeGraph 调用关系图。",
+    "en": "DSH plugins for macOS: AOCI cognition panel and CodeGraph call graph."
+  },
+  "metadata": {
+    "categories": {
+      "cognition": {
+        "title": {
+          "zh": "仓库认知",
+          "en": "Repository Cognition"
+        }
+      },
+      "visualization": {
+        "title": {
+          "zh": "可视化",
+          "en": "Visualization"
+        }
+      }
+    },
+    "labels": {
+      "macos": {
+        "title": {
+          "zh": "macOS 优先",
+          "en": "macOS first"
+        }
+      },
+      "no-deps": {
+        "title": {
+          "zh": "零运行时依赖",
+          "en": "No runtime deps"
+        }
+      }
+    },
+    "sortKeys": {
+      "updated": {
+        "title": {
+          "zh": "最近更新",
+          "en": "Recently updated"
+        },
+        "order": "desc"
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "aoic-panel-mac",
+      "title": {
+        "zh": "AOCI 面板（macOS 版）",
+        "en": "AOCI Panel (macOS)"
+      },
+      "description": {
+        "zh": "把 AOCI 仓库认知索引做成会话标签页：索引正文浏览与搜索（841 条 F/R/A/S）、治理体检（把 443 条 code_skipped 良性发现与真正的阻塞项分开）、S 红线筛选、一键 verify / maintain、索引在线编辑与备份恢复。上游 dsh-aoci-panel 仅支持 Windows 且治理功能在 macOS 上失效（二进制探测只认 .exe、home 只读 USERPROFILE、install.ps1），本版修好平台适配并补齐能力。",
+        "en": "Brings the AOCI repository cognition index into a conversation tab: browse and search entries (F/R/A/S), governance health check that separates benign findings from real blockers, S-constraint filter, one-click verify/maintain, and in-place index editing with backup/restore. The upstream plugin was Windows-only and its governance features degraded on macOS."
+      },
+      "author": "huzijing",
+      "homepage": "https://github.com/huu8/aoic-panel-mac",
+      "repository": {
+        "url": "https://github.com/huu8/aoic-panel-mac"
+      },
+      "categories": [
+        "cognition"
+      ],
+      "labels": [
+        "macos",
+        "no-deps"
+      ],
+      "keywords": [
+        "aoci",
+        "cognition",
+        "index",
+        "mcp",
+        "governance",
+        "macos"
+      ],
+      "engines": {
+        "dsh": ">=0.2.0-rc.1"
+      },
+      "versions": [
+        {
+          "version": "0.7.0-mac.1",
+          "publishTimestamp": 1794292046,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/huu8/aoic-panel-mac.git",
+            "commit": "0103aecf52b72cebdcaaee1f6134daa4fd9480f3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "codegraph-panel-mac",
+      "title": {
+        "zh": "CodeGraph 认知面板",
+        "en": "CodeGraph Panel"
+      },
+      "description": {
+        "zh": "CodeGraph 官方没有 UI（codegraph ui 仍报 coming in an upcoming release），本插件补上：索引概览（文件/节点/边/体积/语言/待同步）、符号搜索、cytoscape 交互式调用关系图（以符号为中心 1-3 跳邻域，节点按类型着色、边按 calls/imports/extends 着色）、影响面分析、符号详情（元数据 + 源码与调用链），以及一键 sync / 重建索引。图数据直读 .codegraph 的 nodes/edges 表（CLI 的 impact 只给平铺节点拿不到连线），只读打开。",
+        "en": "CodeGraph ships no UI (codegraph ui still reports 'coming in an upcoming release'), so this plugin adds one: index overview, symbol search, an interactive cytoscape call graph with 1-3 hop neighborhoods, impact analysis, symbol details with source and call chain, and one-click sync/reindex. Graph data is read directly from the .codegraph SQLite nodes/edges tables (the CLI's impact output has no edges), always opened read-only."
+      },
+      "author": "huzijing",
+      "homepage": "https://github.com/huu8/codegraph-panel-mac",
+      "repository": {
+        "url": "https://github.com/huu8/codegraph-panel-mac"
+      },
+      "categories": [
+        "visualization"
+      ],
+      "labels": [
+        "macos"
+      ],
+      "keywords": [
+        "codegraph",
+        "dependency-graph",
+        "cytoscape",
+        "call-graph",
+        "impact-analysis"
+      ],
+      "engines": {
+        "dsh": ">=0.2.0-rc.1"
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1794292046,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/huu8/codegraph-panel-mac.git",
+            "commit": "7603331e98cdc2b2c693a8d067dbd60d64719a6c"
+          }
+        }
+      ]
+    }
+  ]
+}
